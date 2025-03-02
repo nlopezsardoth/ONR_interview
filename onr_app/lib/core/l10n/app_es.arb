@@ -1,0 +1,14 @@
+{
+  "something_went_wrong_title": "Algo salió mal",
+  "try_again_later_description": "Inténtalo más tarde.",
+  "understood_button_text": "Entendido",
+  
+  "login_title": "Login",
+  "login_button_lable": "Continuar",
+  "email_input_label": "Email",
+  "password_input_label": "Contraseña",
+  "invalid_email_error_text": "Email no valido",
+  "password_too_short_error_text": "La contraseña es muy corta",
+  "empty_field_error_text": "Campo vacio"
+}
+

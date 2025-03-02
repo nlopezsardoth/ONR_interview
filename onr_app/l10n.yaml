@@ -1,0 +1,7 @@
+arb-dir: lib/core/l10n
+template-arb-file: app_es.arb
+
+output-dir: lib/core/l10n
+output-class: AppLocalizations
+output-localization-file: onr_localizations.dart
+synthetic-package: false
