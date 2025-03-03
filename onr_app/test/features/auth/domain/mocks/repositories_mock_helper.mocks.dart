@@ -7,7 +7,7 @@ import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:onr_app/features/auth/domain/entities/user.dart' as _i6;
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart' as _i6;
 import 'package:onr_app/features/auth/domain/repositories/auth_repository.dart'
     as _i3;
 import 'package:onr_app/features/shared/data/errors/failures.dart' as _i5;
@@ -40,20 +40,21 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.User>> login(
+  _i4.Future<_i2.Either<_i5.Failure, _i6.AuthUser>> login(
     String? email,
     String? password,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#login, [email, password]),
-            returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.User>>.value(
-              _FakeEither_0<_i5.Failure, _i6.User>(
-                this,
-                Invocation.method(#login, [email, password]),
-              ),
-            ),
+            returnValue:
+                _i4.Future<_i2.Either<_i5.Failure, _i6.AuthUser>>.value(
+                  _FakeEither_0<_i5.Failure, _i6.AuthUser>(
+                    this,
+                    Invocation.method(#login, [email, password]),
+                  ),
+                ),
           )
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.User>>);
+          as _i4.Future<_i2.Either<_i5.Failure, _i6.AuthUser>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, _i2.Unit>> logout() =>

@@ -7,7 +7,7 @@ import 'dart:async' as _i5;
 
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:onr_app/features/auth/domain/entities/user.dart' as _i7;
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart' as _i7;
 import 'package:onr_app/features/auth/domain/repositories/auth_repository.dart'
     as _i2;
 import 'package:onr_app/features/auth/domain/usecases/login_usecase.dart'
@@ -61,17 +61,20 @@ class MockLoginUseCase extends _i1.Mock implements _i4.LoginUseCase {
           as _i2.AuthRepository);
 
   @override
-  _i5.Future<_i3.Either<_i6.Failure, _i7.User>> call((String, String)? input) =>
+  _i5.Future<_i3.Either<_i6.Failure, _i7.AuthUser>> call(
+    (String, String)? input,
+  ) =>
       (super.noSuchMethod(
             Invocation.method(#call, [input]),
-            returnValue: _i5.Future<_i3.Either<_i6.Failure, _i7.User>>.value(
-              _FakeEither_1<_i6.Failure, _i7.User>(
-                this,
-                Invocation.method(#call, [input]),
-              ),
-            ),
+            returnValue:
+                _i5.Future<_i3.Either<_i6.Failure, _i7.AuthUser>>.value(
+                  _FakeEither_1<_i6.Failure, _i7.AuthUser>(
+                    this,
+                    Invocation.method(#call, [input]),
+                  ),
+                ),
           )
-          as _i5.Future<_i3.Either<_i6.Failure, _i7.User>>);
+          as _i5.Future<_i3.Either<_i6.Failure, _i7.AuthUser>>);
 }
 
 /// A class which mocks [LogoutUseCase].

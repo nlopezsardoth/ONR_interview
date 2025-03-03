@@ -3,7 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:onr_app/core/router/app_router_notifier.dart';
 import 'package:onr_app/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:onr_app/features/auth/presentation/screens/login_screen.dart';
-import 'package:onr_app/features/products/presentation/screens/products_screen.dart';
+import 'package:onr_app/features/products/presentation/screens/product_screen.dart';
+import 'package:onr_app/features/shared/presentation/screens/home_screen.dart';
 import 'package:onr_app/features/shared/presentation/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -23,15 +24,25 @@ GoRouter createRouter(BuildContext context) {
         builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
-        path: '/',
-        builder: (context, state) => const ProductsScreen(),
+        path: '/home/:page',
+        name: HomeScreen.name,
+        builder: (context, state) {
+          final pageIndex = int.parse(state.pathParameters['page'] ?? '0');
+
+          return HomeScreen(pageIndex: pageIndex);
+        },
+        routes: [
+          GoRoute(
+            path: 'product/:id',
+            name: ProductScreen.name,
+            builder: (context, state) {
+              final productId = int.parse(state.pathParameters['id'] ?? '0');
+
+              return ProductScreen(productId: productId);
+            },
+          ),
+        ],
       ),
-      // GoRoute(
-      //   path: '/product/:id',
-      //   builder: (context, state) => ProductScreen(
-      //     productId: state.pathParameters['id'] ?? 'no-id',
-      //   ),
-      // ),
     ],
     redirect: (context, state) {
       final isGoingTo = state.uri.path;
@@ -49,7 +60,7 @@ GoRouter createRouter(BuildContext context) {
 
       if (authStatus == AuthStatus.authenticated) {
         if (isGoingTo == '/login' || isGoingTo == '/splash') {
-          return '/';
+          return '/home/0';
         }
       }
 

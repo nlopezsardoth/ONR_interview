@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:onr_app/features/auth/data/repositories/auth_repository_impl.dart';
-import 'package:onr_app/features/auth/domain/entities/user.dart';
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart';
 import 'package:onr_app/features/auth/domain/usecases/login_usecase.dart';
 import 'package:onr_app/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:onr_app/features/shared/presentation/widgets/errors/error_bottom_sheet.dart';

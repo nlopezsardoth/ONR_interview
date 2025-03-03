@@ -15,6 +15,20 @@ class ErrorBottomSheetCubit extends Cubit<BottomSheetErrorType?> {
     post(BottomSheetErrorType(ErrorType.somethingWentWrong));
   }
 
+  void postCantLoadProductsError() {
+    post(BottomSheetErrorType(ErrorType.cantLoadProductsError));
+  }
+
+  void postCantLoadDetailError() {
+    post(BottomSheetErrorType(ErrorType.cantLoadDetailError));
+  }
+
+  void postCantLoadUsersError() {
+    post(BottomSheetErrorType(ErrorType.cantLoadUsersError));
+  }
+
+
+
 
   void post(BottomSheetErrorType message) {
     emit(message);

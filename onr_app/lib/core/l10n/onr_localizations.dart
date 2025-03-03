@@ -99,6 +99,12 @@ abstract class AppLocalizations {
   /// **'Algo salió mal'**
   String get something_went_wrong_title;
 
+  /// No description provided for @try_again.
+  ///
+  /// In es, this message translates to:
+  /// **'trata de nuevo'**
+  String get try_again;
+
   /// No description provided for @try_again_later_description.
   ///
   /// In es, this message translates to:
@@ -152,6 +158,72 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Campo vacio'**
   String get empty_field_error_text;
+
+  /// No description provided for @products_tile.
+  ///
+  /// In es, this message translates to:
+  /// **'Productos'**
+  String get products_tile;
+
+  /// No description provided for @title_label.
+  ///
+  /// In es, this message translates to:
+  /// **'Título'**
+  String get title_label;
+
+  /// No description provided for @category_label.
+  ///
+  /// In es, this message translates to:
+  /// **'Categoría'**
+  String get category_label;
+
+  /// No description provided for @price_label.
+  ///
+  /// In es, this message translates to:
+  /// **'Precio'**
+  String get price_label;
+
+  /// No description provided for @rating_label.
+  ///
+  /// In es, this message translates to:
+  /// **'Rating'**
+  String get rating_label;
+
+  /// No description provided for @cant_load_products_title.
+  ///
+  /// In es, this message translates to:
+  /// **'No pudimos cargar tus productos'**
+  String get cant_load_products_title;
+
+  /// No description provided for @cant_load_product_title.
+  ///
+  /// In es, this message translates to:
+  /// **'No pudimos obtener información del producto'**
+  String get cant_load_product_title;
+
+  /// No description provided for @users_title.
+  ///
+  /// In es, this message translates to:
+  /// **'Usuarios'**
+  String get users_title;
+
+  /// No description provided for @users_count_text.
+  ///
+  /// In es, this message translates to:
+  /// **'El número total de usuarios es'**
+  String get users_count_text;
+
+  /// No description provided for @ok_label.
+  ///
+  /// In es, this message translates to:
+  /// **'Ok'**
+  String get ok_label;
+
+  /// No description provided for @cant_load_users_title.
+  ///
+  /// In es, this message translates to:
+  /// **'No pudimos cargar los usuarios'**
+  String get cant_load_users_title;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

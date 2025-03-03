@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:onr_app/features/auth/data/inputs/email.dart';
 import 'package:onr_app/features/auth/data/inputs/password.dart';
-import 'package:onr_app/features/auth/domain/entities/user.dart';
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart';
 import 'package:onr_app/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:onr_app/features/auth/presentation/blocs/login/login_bloc.dart';
 import 'package:formz/formz.dart';
@@ -55,7 +55,14 @@ void main() {
   blocTest<LoginBloc, LoginState>(
     'emits loading and success when login is successful',
     build: () {
-      when(mockAuthBloc.stream).thenAnswer((_) => Stream.value(AuthState.authenticated(User(id: '1', email: 'test@example.com', password: 'password123'))));
+      when(mockAuthBloc.stream)
+          .thenAnswer((_) => Stream.value(AuthState.authenticated(
+                AuthUser(
+                  id: '1',
+                  email: 'test@example.com',
+                  password: 'password123',
+                ),
+              )));
       return loginBloc;
     },
     act: (bloc) {
@@ -65,15 +72,28 @@ void main() {
     },
     expect: () => [
       LoginState(email: Email.dirty('test@example.com'), isValid: false),
-      LoginState(email: Email.dirty('test@example.com'), password: Password.dirty('wrongpassword'), isValid: true),
-      LoginState(email: Email.dirty('test@example.com'), password: Password.dirty('password123'), status: FormzSubmissionStatus.inProgress, isValid: true),
-      LoginState(email: Email.dirty('test@example.com'), password: Password.dirty('password123'), status: FormzSubmissionStatus.success, isValid: true),    ],
-    );
+      LoginState(
+          email: Email.dirty('test@example.com'),
+          password: Password.dirty('wrongpassword'),
+          isValid: true),
+      LoginState(
+          email: Email.dirty('test@example.com'),
+          password: Password.dirty('password123'),
+          status: FormzSubmissionStatus.inProgress,
+          isValid: true),
+      LoginState(
+          email: Email.dirty('test@example.com'),
+          password: Password.dirty('password123'),
+          status: FormzSubmissionStatus.success,
+          isValid: true),
+    ],
+  );
 
   blocTest<LoginBloc, LoginState>(
     'emits loading and failure when login fails',
     build: () {
-      when(mockAuthBloc.stream).thenAnswer((_) => Stream.value(AuthState.unauthenticated()));
+      when(mockAuthBloc.stream)
+          .thenAnswer((_) => Stream.value(AuthState.unauthenticated()));
       return loginBloc;
     },
     act: (bloc) {
@@ -83,9 +103,20 @@ void main() {
     },
     expect: () => [
       LoginState(email: Email.dirty('test@example.com'), isValid: false),
-      LoginState(email: Email.dirty('test@example.com'), password: Password.dirty('wrongpassword'), isValid: true),
-      LoginState(email: Email.dirty('test@example.com'), password: Password.dirty('wrongpassword'), status: FormzSubmissionStatus.inProgress, isValid: true),
-      LoginState(email: Email.dirty('test@example.com'), password: Password.dirty('wrongpassword'), status: FormzSubmissionStatus.failure, isValid: true),
+      LoginState(
+          email: Email.dirty('test@example.com'),
+          password: Password.dirty('wrongpassword'),
+          isValid: true),
+      LoginState(
+          email: Email.dirty('test@example.com'),
+          password: Password.dirty('wrongpassword'),
+          status: FormzSubmissionStatus.inProgress,
+          isValid: true),
+      LoginState(
+          email: Email.dirty('test@example.com'),
+          password: Password.dirty('wrongpassword'),
+          status: FormzSubmissionStatus.failure,
+          isValid: true),
     ],
   );
 }

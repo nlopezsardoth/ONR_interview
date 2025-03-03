@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:onr_app/features/auth/domain/entities/user.dart';
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart';
 import 'package:onr_app/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:onr_app/features/shared/data/errors/failures.dart';
 
@@ -26,7 +26,7 @@ void main() {
 
   const email = 'test@example.com';
   const password = 'password123';
-  const testUser = User(id: "1", password: password, email: email);
+  const testUser = AuthUser(id: "1", password: password, email: email);
 
   group('AuthBloc', () {
     blocTest<AuthBloc, AuthState>(

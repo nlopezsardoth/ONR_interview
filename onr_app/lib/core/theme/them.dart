@@ -32,7 +32,7 @@ class ONRTheme {
       headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
       bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
       bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
-    ).apply(bodyColor: primaryColor, fontFamily: "Monserrat");
+    ).apply(fontFamily: "Monserrat");
   }
 
   static final ElevatedButtonThemeData _elevatedButtonTheme =

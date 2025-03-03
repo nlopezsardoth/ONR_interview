@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:onr_app/features/auth/data/repositories/auth_repository_impl.dart';
-import 'package:onr_app/features/auth/domain/entities/user.dart';
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart';
 import 'package:onr_app/features/shared/data/errors/failures.dart';
 import 'package:onr_app/features/shared/utils/api_response_handler.dart';
 import 'package:dartz/dartz.dart';
@@ -29,7 +29,7 @@ void main() {
 
         final result = await repository.login(email, password);
 
-        expect(result, isA<Right<Failure, User>>());
+        expect(result, isA<Right<Failure, AuthUser>>());
         verify(mockLocalDataSource.login(email, password));
         verifyNoMoreInteractions(mockLocalDataSource);
       });
@@ -41,7 +41,7 @@ void main() {
 
         final result = await repository.login(email, password);
 
-        expect(result, isA<Left<Failure, User>>());
+        expect(result, isA<Left<Failure, AuthUser>>());
         verify(mockLocalDataSource.login(email, password));
         verifyNoMoreInteractions(mockLocalDataSource);
       });

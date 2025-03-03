@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 import 'package:onr_app/features/auth/data/inputs/email.dart';
 import 'package:onr_app/features/auth/data/inputs/password.dart';
-import 'package:onr_app/features/auth/domain/entities/user.dart';
+import 'package:onr_app/features/auth/domain/entities/auth_user.dart';
 import 'package:onr_app/features/auth/presentation/blocs/auth/auth_bloc.dart';
 
 part 'login_event.dart';
@@ -44,7 +44,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress, isValid: true));
 
     try {
-      _authBloc.add(Login(User(
+      _authBloc.add(Login(AuthUser(
         id: "-",
         email: state.email.value,
         password: state.password.value,

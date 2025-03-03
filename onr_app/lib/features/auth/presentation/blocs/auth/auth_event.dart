@@ -8,7 +8,7 @@ abstract class AuthEvent extends Equatable {
 }
 
 class Login extends AuthEvent {
-  final User user;
+  final AuthUser user;
 
   const Login(this.user);
 

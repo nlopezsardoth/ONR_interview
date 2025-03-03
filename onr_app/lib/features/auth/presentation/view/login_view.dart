@@ -21,7 +21,6 @@ class LoginView extends StatelessWidget {
           PasswordInput(),
           const SizedBox(height: 24),
           BlocBuilder<LoginBloc, LoginState>(
-              buildWhen: (previous, current) => previous.status != current.status,
               builder: (context, state) {
                 return ElevatedButton(
                   onPressed: state.isValid

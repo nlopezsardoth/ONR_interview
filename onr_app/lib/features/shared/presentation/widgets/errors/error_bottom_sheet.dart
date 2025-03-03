@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:onr_app/features/shared/presentation/widgets/errors/popover.dart';
 import 'package:onr_app/features/shared/utils/extensions/context_extensions.dart';
 
-enum ErrorType { somethingWentWrong }
+enum ErrorType { somethingWentWrong, cantLoadProductsError, cantLoadDetailError, cantLoadUsersError }
 
 class ErrorBottomSheet {
   static void showErrorModal(
@@ -21,6 +21,21 @@ class ErrorBottomSheet {
         iconData = Icons.error_outline;
         title = context.l10n.something_went_wrong_title;
         description = context.l10n.try_again_later_description;
+        break;
+      case ErrorType.cantLoadProductsError:
+        iconData = Icons.production_quantity_limits_outlined;
+        title = context.l10n.something_went_wrong_title;
+        description = context.l10n.cant_load_products_title;
+        break;
+      case ErrorType.cantLoadDetailError:
+        iconData = Icons.production_quantity_limits_outlined;
+        title = context.l10n.something_went_wrong_title;
+        description = context.l10n.cant_load_product_title;
+        break;
+      case ErrorType.cantLoadUsersError:
+        iconData = Icons.person_off;
+        title = context.l10n.something_went_wrong_title;
+        description = context.l10n.cant_load_users_title;
         break;
     }
 
